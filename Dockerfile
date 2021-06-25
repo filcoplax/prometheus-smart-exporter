@@ -17,9 +17,12 @@ RUN go get github.com/markbates/pkger/cmd/pkger && \
 
 FROM alpine
 
-COPY --from=stage /go/bin/smart-exporter /usr/bin/
-
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories && \
+     apk update && \
+     apk add --no-cache bash
 
 EXPOSE 9111
+
+COPY --from=stage /go/bin/smart-exporter /usr/bin/
 
 ENTRYPOINT ["smart-exporter"]
