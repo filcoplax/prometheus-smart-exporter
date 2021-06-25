@@ -6,6 +6,8 @@ services:
     #image: registry.sh.synyi.com/smart-exporter:v1.0
     restart: unless-stopped
     privileged: true
+    ports:
+      - "9111:9111"
     volumes:
       - /dev:/dev
 
