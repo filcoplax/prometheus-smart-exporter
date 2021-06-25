@@ -1,0 +1,11 @@
+---
+version: '3'
+services:
+  app:
+    build: ./
+    #image: registry.sh.synyi.com/smart-exporter:v1.0
+    restart: unless-stopped
+    privileged: true
+    volumes:
+      - /dev:/dev
+
