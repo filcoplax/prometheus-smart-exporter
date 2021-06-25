@@ -17,9 +17,9 @@ RUN go get github.com/markbates/pkger/cmd/pkger && \
 
 FROM alpine
 
-COPY --from=stage /go/bin/smart-exporter .
+COPY --from=stage /go/bin/smart-exporter /usr/bin/
 
 
 EXPOSE 9111
 
-CMD ["./smart-exporter"]
+ENTRYPOINT ["smart-exporter"]
