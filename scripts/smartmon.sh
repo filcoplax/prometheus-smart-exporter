@@ -126,6 +126,7 @@ parse_smartctl_scsi_attributes() {
   [ ! -z "$lbas_written" ] && echo "total_lbas_written_raw_value{${labels},smart_id=\"242\"} ${lbas_written}"
   [ ! -z "$power_cycle" ] && echo "power_cycle_count_raw_value{${labels},smart_id=\"12\"} ${power_cycle}"
   [ ! -z "$grown_defects" ] && echo "grown_defects_count_raw_value{${labels},smart_id=\"12\"} ${grown_defects}"
+  [ ! -z "$percentage_used" ] && echo "percentage_used_raw_value{${labels},smart_id=\"9\"} ${percentage_used}"
 }
 
 extract_labels_from_smartctl_info() {
