@@ -82,6 +82,7 @@ unsafe_shutdowns
 workld_host_reads_perc
 workld_media_wear_indic
 workload_minutes
+percentage_used
 SMARTMONATTRS
 )"
 smartmon_attrs="$(echo ${smartmon_attrs} | xargs | tr ' ' '|')"
@@ -115,8 +116,8 @@ parse_smartctl_scsi_attributes() {
     Data_Units_Written) lbas_written="$(echo ${attr_value} | cut -d ' ' -f1 | sed 's/,//g' | awk '{$1=$1};1')" ;;
     Accumulated_start-stop_cycles) power_cycle="$(echo ${attr_value} | awk '{ printf "%e\n", $1 }')" ;;
     Elements_in_grown_defect_list) grown_defects="$(echo ${attr_value} | awk '{ printf "%e\n", $1 }')" ;;
-    # For disk life
-    Percentage_Used) percentage_used="$(echo ${attr_value} | cut -d ' ' -f1 | sed 's/\%//g')" ;;
+    # # For disk life
+    # Percentage_Used) percentage_used="$(echo ${attr_value} | cut -d ' ' -f1 | sed 's/\%//g')" ;;
 
     esac
   done
@@ -126,7 +127,7 @@ parse_smartctl_scsi_attributes() {
   [ ! -z "$lbas_written" ] && echo "total_lbas_written_raw_value{${labels},smart_id=\"242\"} ${lbas_written}"
   [ ! -z "$power_cycle" ] && echo "power_cycle_count_raw_value{${labels},smart_id=\"12\"} ${power_cycle}"
   [ ! -z "$grown_defects" ] && echo "grown_defects_count_raw_value{${labels},smart_id=\"12\"} ${grown_defects}"
-  [ ! -z "$percentage_used" ] && echo "percentage_used_raw_value{${labels},smart_id=\"9\"} ${percentage_used}"
+  # [ ! -z "$percentage_used" ] && echo "percentage_used_raw_value{${labels},smart_id=\"9\"} ${percentage_used}"
 }
 
 extract_labels_from_smartctl_info() {
