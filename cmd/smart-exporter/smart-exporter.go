@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo/v4"
-	exporter "github.com/mingcheng/prometheus-smart-exporter"
+	exporter "github.com/filcoplax/prometheus-smart-exporter"
 	flag "github.com/spf13/pflag"
 )
 

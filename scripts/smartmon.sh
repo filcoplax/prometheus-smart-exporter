@@ -115,6 +115,9 @@ parse_smartctl_scsi_attributes() {
     Data_Units_Written) lbas_written="$(echo ${attr_value} | cut -d ' ' -f1 | sed 's/,//g' | awk '{$1=$1};1')" ;;
     Accumulated_start-stop_cycles) power_cycle="$(echo ${attr_value} | awk '{ printf "%e\n", $1 }')" ;;
     Elements_in_grown_defect_list) grown_defects="$(echo ${attr_value} | awk '{ printf "%e\n", $1 }')" ;;
+    # For disk life
+    Percentage_Used) percentage_used="$(echo ${attr_value} | cut -d ' ' -f1 | sed 's/\%//g' ;;
+
     esac
   done
   [ ! -z "$power_on" ] && echo "power_on_hours_raw_value{${labels},smart_id=\"9\"} ${power_on}"
