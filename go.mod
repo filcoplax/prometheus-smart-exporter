@@ -1,4 +1,4 @@
-module github.com/mingcheng/prometheus-smart-exporter
+module github.com/filcoplax/prometheus-smart-exporter
 
 go 1.13
 
