@@ -83,6 +83,7 @@ workld_host_reads_perc
 workld_media_wear_indic
 workload_minutes
 percentage_used
+media_wearout_indicator
 SMARTMONATTRS
 )"
 smartmon_attrs="$(echo ${smartmon_attrs} | xargs | tr ' ' '|')"
