@@ -116,7 +116,7 @@ parse_smartctl_scsi_attributes() {
     Accumulated_start-stop_cycles) power_cycle="$(echo ${attr_value} | awk '{ printf "%e\n", $1 }')" ;;
     Elements_in_grown_defect_list) grown_defects="$(echo ${attr_value} | awk '{ printf "%e\n", $1 }')" ;;
     # For disk life
-    Percentage_Used) percentage_used="$(echo ${attr_value} | cut -d ' ' -f1 | sed 's/\%//g' ;;
+    Percentage_Used) percentage_used="$(echo ${attr_value} | cut -d ' ' -f1 | sed 's/\%//g')" ;;
 
     esac
   done
