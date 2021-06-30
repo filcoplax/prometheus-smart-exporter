@@ -27,6 +27,7 @@ _testmain.go
 profile.cov
 coverage.html
 /go.sum
+*.tar
 
 # Emacs backup files
 *~
