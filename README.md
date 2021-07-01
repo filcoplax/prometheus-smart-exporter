@@ -16,7 +16,7 @@
 docker load -i smart-exporter-20210630.tar
 ```
 
-
+> 如果没有docker的话,请预先安装docker与docker-compose环境
 
 #### 启动
 
@@ -32,7 +32,7 @@ docker-compose up -d
 
 
 
-## prometheus-server 添加target
+## prometheus-server 添加job
 
 修改monitoring-prometheus-server的configmap文件, 
 
@@ -60,7 +60,7 @@ docker-compose up -d
 
 访问prometheus server的ui查看target
 
-访问`<ipaddress:39000>` , 点击Status下拉框, 点击Targets, 观察是否有smart(?/?)up
+访问`<ipaddress:39000>` , 点击Status下拉框, 点击Targets, 观察是否有smart(?/?) up
 
 如果都up了就可以了
 
@@ -71,6 +71,8 @@ docker-compose up -d
 导入dashboard
 
 点击+, 选择 Import, 点击Upload JSON file, 选择目录下的`smart_disk_healthy_20******.json`导入
+
+
 
 
 
